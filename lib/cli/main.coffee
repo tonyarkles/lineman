@@ -13,7 +13,8 @@ module.exports = ->
 
   require("./setup-options")(commander, cli)
 
-  require("./ensure-appropriate-version")()
+# TODO: put this back in before merging!
+#  require("./ensure-appropriate-version")()
 
   commander.
     command("new").
