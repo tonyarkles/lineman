@@ -3,6 +3,9 @@ semver = require('semver')
 module.exports = () ->
   return unless specifiedVersion = specifiedLinemanVersion()
   actualVersion = actualLinemanVersion()
+
+  return if actualVersion.indexOf('git://') == 0
+  
   unless semver.satisfies(actualVersion, specifiedVersion)
     console.error """
                   Uh oh, your package.json specifies lineman version '#{specifiedVersion}', but Lineman is currently '#{actualVersion}'.
