@@ -4,7 +4,7 @@ module.exports = () ->
   return unless specifiedVersion = specifiedLinemanVersion()
   actualVersion = actualLinemanVersion()
 
-  return if actualVersion.indexOf('git://') == 0
+  return if specifiedVersion.indexOf('git://') == 0
   
   unless semver.satisfies(actualVersion, specifiedVersion)
     console.error """
